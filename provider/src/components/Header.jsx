@@ -1,9 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Header = ({ className, title }) => {
+const Header = ({
+  className,
+  title,
+  emitOnClick = () => {
+    console.log('not passed');
+  },
+}) => {
   return (
-    <div className={className}>
+    <div className={className} onClick={emitOnClick}>
       <h3>{title}</h3>
     </div>
   );
