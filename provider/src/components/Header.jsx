@@ -1,5 +1,7 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import styled from 'styled-components';
+// import scssModule from './Header.module.scss';
+import scssModule from '!!raw-loader!./Header.module.scss';
 
 const Header = ({
   className,
@@ -8,9 +10,13 @@ const Header = ({
     console.log('not passed');
   },
 }) => {
+  useEffect(() => {
+    console.log('🚀 ~ file: Header.jsx ~ line 16 ~ scssModule', scssModule);
+  }, [scssModule]);
+
   return (
     <div className={className} onClick={emitOnClick}>
-      <h3>{title}</h3>
+      <h3 className="title">{title}</h3>
     </div>
   );
 };
@@ -23,6 +29,7 @@ const styledHeader = styled(Header)`
     padding: 0 1vmin;
     color: white;
   }
+  ${scssModule}
 `;
 
 export default styledHeader;

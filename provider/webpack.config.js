@@ -14,10 +14,15 @@ module.exports = {
   devServer: {
     port: 3000,
     historyApiFallback: true,
+    watchFiles: "src/**/*,scss",
   },
 
   module: {
     rules: [
+      {
+        test: /\.module.scss$/i,
+        use: 'raw-loader',
+      },
       {
         test: /\.m?js/,
         type: "javascript/auto",
